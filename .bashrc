@@ -55,8 +55,8 @@ if ! shopt -oq posix; then
 fi
 
 
-export PS1='|\[\033[32m\]$(parse_git_branch)\[\033[00m\] \u@\h \w \n├── $ '
-# export PS1="${COLOR_CYAN}\u@\h${COLOR_RESET} ${COLOR_MAGENTA}\W${COLOR_GREEN}\$(parse_git_branch)${COLOR_RESET} $ "
+# export PS1='|\[\033[32m\]$(parse_git_branch)\[\033[00m\] \u@\h \w \n├── $ '
+export PS1="${COLOR_CYAN}\u@\h${COLOR_RESET} ${COLOR_MAGENTA}\W${COLOR_GREEN}\$(parse_git_branch)${COLOR_RESET} $ "
 
 
 export PATH=$PATH:~/dotfiles/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin
