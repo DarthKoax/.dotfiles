@@ -36,7 +36,7 @@ if [ -f ~/dotfiles/.bash_secrets ]; then
 fi
 
 #enables functions
-for file in ~/bash_functions/*.sh; do
+for file in ~/dotfiles/bash_functions/*.sh; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
@@ -60,4 +60,3 @@ export PS1='|\[\033[32m\]$(parse_git_branch)\[\033[00m\] \u@\h \w \n├── $ 
 
 
 export PATH=$PATH:~/dotfiles/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin
-cd ~
