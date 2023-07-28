@@ -9,7 +9,7 @@ case $- in
 esac
 
 if command -v tmux>/dev/null; then
-      [[ ! $TERM =~ screen ]] && [ -n "$PS1" ] && exec tmux a || exec tmux
+   [[ ! $TERM =~ screen ]] && [ -n "$PS1" ] && exec tmux
 fi
 
 
