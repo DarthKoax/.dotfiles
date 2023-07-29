@@ -25,18 +25,19 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 #enables secrets
-if [ -f ~/.dotfiles/.bash_shell_colors.sh ]; then
-    source ~/dotfiles/.bash_shell_colors.sh
+if [ -f ~/.bash_shell_colors.sh ]; then
+    
+    source ~/.bash_shell_colors.sh
 fi
 
 #enable aliases
-if [ -f ~/dotfiles/.bash_aliases ]; then
-    . ~/dotfiles/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 #enables secrets
-if [ -f ~/dotfiles/.bash_secrets ]; then
-    . ~/dotfiles/.bash_secrets
+if [ -f ~/.bash_secrets ]; then
+    . ~/.bash_secrets
 fi
 
 #enables functions
