@@ -1,0 +1,7 @@
+[user]                                                                                                                                                                                                                                
+email               = "14970093+darthkoax@users.noreply.github.com "                                                                                                                                                                              
+name                = "darthkoax"
+
+[alias]
+checkout-worktree   = "!git_worktree_checkout"
+clone-worktree      = "!git_clone_and_worktree_setup"

@@ -1,0 +1,28 @@
+   66  vim bob.py
+   68  chmod +x bob
+   69  chmod +x bob.py 
+   70  ./bob.py 
+   71  vim bob.py
+   72  ./bob.py 
+   73  vim bob.py
+   75  python bob
+   76  python bob.py 
+   77  python3 bob.py 
+   78  vim bob.py
+   79  python3 bob.py 
+   80  vim bob.py
+   81  python3 bob.py 
+   82  vim bob.py
+   83  python3 bob.py 
+   84  vim bob.py
+   85  python3 bob.py 
+   86  vim bob.py
+   87  python3 bob.py 
+   88  vim bob.py 
+   95  hg bob
+  136  alert bob
+  138  alert bob
+  325  ansible-galaxy install https://github.com/gantsign/ansible-role-golang/archive/refs/tags/3.1.6.tar.gz bob
+  836  hg bob
+  838  hg bob
+  840  hg bob

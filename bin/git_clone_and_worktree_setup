@@ -1,0 +1,30 @@
+#!/bin/bash
+# Check if URL was provided
+if [ -z "$1" ]; then
+	echo "Usage: git_clone_and_worktree_setup <repo-url>"
+	exit 1
+fi
+
+# Get the repo URL from command line argument
+REPO_URL=$1
+
+# Extract the repo name from the URL and remove .git if present
+REPO_NAME=$(basename $REPO_URL | sed 's/\.git//')
+
+# Define project directory based on the current directory
+PROJECT_DIR=$PWD/$REPO_NAME
+
+# Define bare repo name and worktree directory
+BARE_REPO_NAME=$REPO_NAME.git
+WORKTREE_DIR=git-worktrees
+
+# Branches to checkout as worktrees
+BRANCHES=("master")
+
+# Clone the bare repository
+git clone --bare $REPO_URL $PROJECT_DIR/$BARE_REPO_NAME
+
+# Create worktree directories and checkout branches
+for branch in "${BRANCHES[@]}"; do
+	git -C $PROJECT_DIR/$BARE_REPO_NAME worktree add $PROJECT_DIR/$WORKTREE_DIR/$branch $branch
+done
