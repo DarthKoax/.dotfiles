@@ -16,7 +16,7 @@ alias winget="winget.exe"
 alias hg='history | grep'
 
 
-alias taillog='f() { tail -F "$1" | while read LOGLINE; do curl -X POST -d "log_line=$LOGLINE" http://$LOGSERVER/log; done; unset -f f; }; f
+alias taillog='f() { tail -F "$1" | while read LOGLINE; do curl -X POST -d "log_line=$LOGLINE" http://$LOGSERVER/log; done; unset -f f; }; f'
 
 # Credits:
 # https://github.com/CoreyMSchafer/dotfiles/
