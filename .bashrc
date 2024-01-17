@@ -40,6 +40,17 @@ if [ -f ~/.bash_secrets ]; then
     . ~/.bash_secrets
 fi
 
+#Enables FZF completion
+if [ -f ~/.config/fzf/completion.bash ]; then
+    source ~/.config/fzf/completion.bash
+fi
+#Enables FZF bindings
+if [ -f ~/.config/fzf/key-bindings.bash ]; then
+    source ~/.config/fzf/key-bindings.bash
+fi
+
+
+
 #enables functions
 for file in ~/dotfiles/bash_functions/*.sh; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
