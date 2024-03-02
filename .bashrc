@@ -75,4 +75,4 @@ fi
 export PS1="${COLOR_GREEN}\$(parse_git_branch)${COLOR_RESET}${COLOR_CYAN}\u@\h${COLOR_RESET} ${COLOR_MAGENTA}\w $ ${COLOR_RESET}"
 
 
-export PATH=$PATH:~/dotfiles/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin
+export PATH=$PATH:~/dotfiles/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin:$(go env GOPATH)/bin
