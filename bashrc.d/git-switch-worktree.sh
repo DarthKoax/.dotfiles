@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 function git-switch-worktree(){
 	# Check if arguments were provided
 	if [ -z "$1" ]; then

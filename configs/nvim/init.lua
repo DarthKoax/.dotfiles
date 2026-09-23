@@ -1,0 +1,5 @@
+require("keymaps")
+require("plugins")
+require("options")
+-- require("theme")
+-- require("zellij").setup()

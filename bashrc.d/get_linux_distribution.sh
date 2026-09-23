@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 function get_linux_distribution() {
     if [ -f "/etc/os-release" ]; then
         # Modern distributions use /etc/os-release
