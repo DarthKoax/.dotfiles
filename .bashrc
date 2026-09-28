@@ -8,9 +8,9 @@ case $- in
       *) return;;
 esac
 
-if command -v tmux>/dev/null; then
-   [[ ! $TERM =~ screen ]] && [ -n "$PS1" ] && exec tmux
-fi
+# if command -v tmux>/dev/null; then
+#    [[ ! $TERM =~ screen ]] && [ -n "$PS1" ] && exec tmux
+# fi
 
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -56,6 +56,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 export PS1="${PROMPT_BRIGHT_CYAN}${PROMPT_BOLD}\$(parse_git_branch)${PROMPT_BRIGHT_GREEN}\$(parse_kube_namespace)${PROMPT_RESET}${PROMPT_CYAN}\u@\h${PROMPT_RESET} ${PROMPT_MAGENTA}\w $ ${PROMPT_RESET}"
 export PATH=$PATH:/usr/local/bin:/usr/bin:/usr/local/go/bin
