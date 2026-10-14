@@ -37,4 +37,30 @@ for pat in "factory/jobs/" "factory/board.json" "factory/.board.lock"; do
   fi
 done
 
+# Inject checkout target into Makefile if not present
+if [ ! -f Makefile ]; then
+  cat > Makefile <<'EOF'
+SHELL := /usr/bin/env bash -euo pipefail
+
+.PHONY: checkout
+
+## checkout: pull & checkout a factory feature branch (usage: make checkout [job=001-parent-direct-approve]); defaults to main
+checkout:
+	@bash factory/checkout.sh "$(job)"
+EOF
+  echo "Created Makefile with checkout target"
+else
+  if ! grep -qE '^checkout:' Makefile; then
+    cat >> Makefile <<'EOF'
+
+## checkout: pull & checkout a factory feature branch (usage: make checkout [job=001-parent-direct-approve]); defaults to main
+checkout:
+	@bash factory/checkout.sh "$(job)"
+EOF
+    echo "Added checkout target to existing Makefile"
+  else
+    echo "Makefile already has checkout target, skipping"
+  fi
+fi
+
 echo "Factory setup complete!"

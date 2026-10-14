@@ -145,8 +145,9 @@ bash "$SKILL_DIR/scripts/setup-factory.sh" "$SKILL_DIR"
 This will:
 - Create `factory/jobs/` directory
 - Initialize `factory/board.json` if it doesn't exist
-- Copy all helper scripts (`factory/update-board.sh`, `factory/board-*.sh`) from the skill's `scripts/` directory
+- Copy all helper scripts (`factory/update-board.sh`, `factory/board-*.sh`, `factory/checkout.sh`) from the skill's `scripts/` directory
 - Add factory paths to `.gitignore`
+- Inject a `checkout` target into the project's `Makefile` (or create one if it doesn't exist)
 
 Alternatively, you can manually initialize:
 
@@ -376,6 +377,42 @@ Use the Task tool to spawn the `factory-approver` agent with:
    12. Atomic update: `bash factory/board-set-pr.sh "<job-id>" "<pr-url>"` (sets stage=done, worktree=null, pr=url)
 
 - **ESCALATE**: Atomic update: `bash factory/board-set-stage.sh "<job-id>" "needs-human"`. Inform the user. Leave worktree intact for manual intervention.
+
+## Branch Checkout Utility
+
+All Factory projects include a `checkout` Makefile target that simplifies switching between feature branches managed by the factory. This is automatically set up during initialization.
+
+### Usage
+
+```bash
+# Interactive selection (requires fzf)
+make checkout
+
+# Checkout a specific job's branch
+make checkout job=001-add-auth
+
+# Checkout main (when no job specified and fzf not available)
+make checkout
+```
+
+### Behavior
+
+1. **With `fzf` installed**: Shows an interactive menu listing:
+   - `main` branch (marked as "default")
+   - All active factory jobs with their branch names and current stages
+   
+2. **Without `fzf` or no job specified**: Falls back to checking out `main`
+
+3. **With job ID specified**: Looks up the job in `factory/board.json`, fetches the associated branch from origin, and checks it out
+
+### Implementation Details
+
+- **Script**: `factory/checkout.sh` - handles all checkout logic
+- **Makefile target**: `checkout` - calls the script with optional `job` parameter
+- **Dependencies**: `git`, `jq`, optionally `fzf` for interactive mode
+- **Error handling**: Validates job exists in `board.json` before attempting checkout
+
+This utility enables developers to quickly switch between factory-managed branches without manually looking up branch names in `board.json`.
 
 ## Rules
 
