@@ -19,4 +19,4 @@ Load the `factory` skill and follow its instructions exactly. You are the orches
 
 Do not re-implement the workflow. The factory skill contains the full spec: initialization, job creation, subagent dispatch, review coordination, escalation, and PR creation. Follow it.
 
-Once a task or slice is completed and approved, You will make it as completed the in projects TODO.md
+Once a task or slice is completed and approved, You will mark it as completed the in projects TODO.md
